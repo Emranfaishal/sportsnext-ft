@@ -1,4 +1,5 @@
-"use client";
+'use client'
+import { motion } from "framer-motion";
 
 import CountUp from "react-countup";
 import { Users, MapPin, CalendarCheck, Headphones } from "lucide-react";
@@ -35,60 +36,67 @@ const stats = [
 
 const OurGraowing = () => {
     return (
-        <section className="py-20 relative bg-[#0F172A] overflow-hidden">
-            <div className=" px-4">
+        <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+        >
+            <section className="py-20 relative bg-[#0F172A]  overflow-hidden">
+                <div className=" px-4">
 
-                {/* Heading */}
-                <div className="text-center mb-14">
-                    <h2 className="text-4xl font-bold text-white">
-                        Our Growing <span className="text-[#C5A358]">Community</span>
-                    </h2>
-                    <p className="text-gray-500 mt-3">
-                        Thousands of players trust SportNest for their daily games.
-                    </p>
-                </div>
+                    {/* Heading */}
+                    <div className="text-center mb-14">
+                        <h2 className="text-4xl font-bold text-white">
+                            Our Growing <span className="text-[#C5A358]">Community</span>
+                        </h2>
+                        <p className="text-gray-500 mt-3">
+                            Thousands of players trust SportNest for their daily games.
+                        </p>
+                    </div>
 
-                {/* Stats Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {stats.map((stat) => {
-                        const Icon = stat.icon;
+                    {/* Stats Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {stats.map((stat) => {
+                            const Icon = stat.icon;
 
-                        return (
-                            <div
-                                key={stat.id}
-                                className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100  hover:border-[#C5A358]  hover:-translate-y-2 transition-all duration-300 text-center group"
-                            >
-                                {/* Icon */}
-                                <div className="w-16 h-16 mx-auto rounded-2xl bg-green-100 flex items-center justify-center mb-5 group-hover:scale-110 transition">
-                                    <Icon className="w-8 h-8 text-[#C5A358]" />
+                            return (
+                                <div
+                                    key={stat.id}
+                                    className="bg-[#F7F3ED] rounded-3xl p-8 shadow-sm border border-gray-100  hover:border-[#C5A358]  hover:-translate-y-2 transition-all duration-300 text-center group"
+                                >
+                                    {/* Icon */}
+                                    <div className="w-16 h-16 mx-auto rounded-2xl bg-green-100 flex items-center justify-center mb-5 group-hover:scale-110 transition">
+                                        <Icon className="w-8 h-8 text-[#C5A358]" />
+                                    </div>
+
+                                    {/* Counter */}
+                                    <h3 className="text-4xl font-extrabold text-gray-800">
+                                        {typeof stat.value === "number" ? (
+                                            <CountUp
+                                                end={stat.value}
+                                                duration={2}
+                                                separator=","
+                                                enableScrollSpy
+                                                scrollSpyDelay={200}
+                                            />
+                                        ) : (
+                                            stat.value
+                                        )}
+                                        {stat.suffix}
+                                    </h3>
+
+                                    {/* Title */}
+                                    <p className="text-gray-500 mt-2 text-sm">
+                                        {stat.title}
+                                    </p>
                                 </div>
-
-                                {/* Counter */}
-                                <h3 className="text-4xl font-extrabold text-gray-800">
-                                    {typeof stat.value === "number" ? (
-                                        <CountUp
-                                            end={stat.value}
-                                            duration={2}
-                                            separator=","
-                                            enableScrollSpy
-                                            scrollSpyDelay={200}
-                                        />
-                                    ) : (
-                                        stat.value
-                                    )}
-                                    {stat.suffix}
-                                </h3>
-
-                                {/* Title */}
-                                <p className="text-gray-500 mt-2 text-sm">
-                                    {stat.title}
-                                </p>
-                            </div>
-                        );
-                    })}
+                            );
+                        })}
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </motion.div>
     );
 };
 

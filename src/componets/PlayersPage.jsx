@@ -1,5 +1,5 @@
-
-
+'use client'
+import { motion } from "framer-motion";
 import { Avatar } from "@heroui/react";
 import Marquee from "react-fast-marquee";
 
@@ -128,38 +128,47 @@ const testimonials = [
 
 const playersPage = () => {
     return (
-        <section className="py-16 relative bg-[#0F172A] flex items-center overflow-hidden">
-            <div className="container mx-auto">
-                <div className="text-center mb-10">
-                    <h2 className="text-4xl font-bold text-white">
-                        What <span className="text-[#C5A358]">Players Say</span>
-                    </h2>
-                    <p className="text-gray-500 mt-2">
-                        Real feedback from SportNest users
-                    </p>
-                </div>
 
-                <Marquee pauseOnHover speed={50} gradient={false}>
-                    {testimonials.map((t, i) => (
-                        <div
-                            key={i}
-                            className="mx-4 w-70 h-50 bg-white shadow-md rounded-xl p-5 border"
-                        >
-                            <Avatar>
-                                <Avatar.Image alt="John Doe" src={t.image} />
-                                <Avatar.Fallback>JD</Avatar.Fallback>
-                            </Avatar>
-                            <p className="text-gray-600 italic">“{t.text}”</p>
+        <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="relative bg-[#0F172A] min-h-screen flex items-center overflow-hidden"
+        >
+            <section className="py-16 relative bg-[#0F172A] flex items-center overflow-hidden">
+                <div className="container mx-auto">
+                    <div className="text-center mb-10">
+                        <h2 className="text-4xl font-bold text-white">
+                            What <span className="text-[#C5A358]">Players Say</span>
+                        </h2>
+                        <p className="text-gray-500 mt-2">
+                            Real feedback from SportNest users
+                        </p>
+                    </div>
 
-                            <div className="mt-4">
-                                <p className="font-semibold text-gray-800">{t.name}</p>
-                                <p className="text-sm text-gray-500">{t.sport}</p>
+                    <Marquee pauseOnHover speed={50} gradient={false}>
+                        {testimonials.map((t, i) => (
+                            <div
+                                key={i}
+                                className="mx-4 w-70 h-50 bg-[#F7F3ED] shadow-md rounded-xl p-5 border"
+                            >
+                                <Avatar>
+                                    <Avatar.Image alt="John Doe" src={t.image} />
+                                    <Avatar.Fallback>JD</Avatar.Fallback>
+                                </Avatar>
+                                <p className="text-gray-600 italic">“{t.text}”</p>
+
+                                <div className="mt-4">
+                                    <p className="font-semibold text-gray-800">{t.name}</p>
+                                    <p className="text-sm text-gray-500">{t.sport}</p>
+                                </div>
                             </div>
-                        </div>
-                    ))}
-                </Marquee>
-            </div>
-        </section>
+                        ))}
+                    </Marquee>
+                </div>
+            </section>
+        </motion.div>
     );
 };
 

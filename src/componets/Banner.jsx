@@ -1,11 +1,19 @@
+'use client'
 import Image from 'next/image';
 import React from 'react';
 import { IoMdCheckmark } from 'react-icons/io';
-
+import { motion } from "framer-motion";
+ 
 
 const BannerPage = () => {
     return (
-        <div className="relative bg-[#0F172A] min-h-screen flex items-center overflow-hidden">
+        <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="relative bg-[#0F172A] min-h-screen flex items-center overflow-hidden"
+        >
             <div className="container mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
 
                 {/* Left Side */}
@@ -89,7 +97,8 @@ const BannerPage = () => {
 
                 </div>
             </div>
-        </div>
+
+        </motion.div>
     );
 };
 

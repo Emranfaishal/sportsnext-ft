@@ -1,3 +1,5 @@
+'use client'
+import { motion } from "framer-motion";
 import {
     FaFootballBall,
     FaBasketballBall,
@@ -39,29 +41,35 @@ const sports = [
 
 const SportsBanner = () => {
     return (
-        <section className="py-20 relative bg-[#0F172A] flex items-center overflow-hidden">
-            <div className="container mx-auto px-6">
+        <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+        >
+            <section className="py-20 relative bg-[#0F172A] flex items-center overflow-hidden">
+                <div className="container mx-auto px-6">
 
-                {/* Heading */}
-                <div className="text-center mb-14">
-                    <h1 className="text-4xl md:text-5xl font-bold text-white">
-                        Popular <span className="text-[#C5A358]">Sports</span>
-                    </h1>
+                    {/* Heading */}
+                    <div className="text-center mb-14">
+                        <h1 className="text-4xl md:text-5xl font-bold text-white">
+                            Popular <span className="text-[#C5A358]">Sports</span>
+                        </h1>
 
-                    <p className="text-gray-500 mt-4 text-lg">
-                        Explore and book venues for your favorite sports.
-                    </p>
-                </div>
+                        <p className="text-gray-500 mt-4 text-lg">
+                            Explore and book venues for your favorite sports.
+                        </p>
+                    </div>
 
-                {/* Cards */}
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                    {/* Cards */}
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
 
-                    {sports.map((sport, index) => (
-                        <div
-                            key={index}
-                            className="
+                        {sports.map((sport, index) => (
+                            <div
+                                key={index}
+                                className="
                 group
-                bg-white
+                bg-[#F7F3ED]
                 rounded-2xl
                 p-8
                 flex flex-col
@@ -74,30 +82,31 @@ const SportsBanner = () => {
                 transition-all duration-300
                 cursor-pointer
               "
-                        >
-                            {/* Icon */}
-                            <div
-                                className="
+                            >
+                                {/* Icon */}
+                                <div
+                                    className="
                   text-5xl
                   text-[#C5A358]
                   mb-5
                   transition-transform duration-300
                   group-hover:scale-110
                 "
-                            >
-                                {sport.icon}
+                                >
+                                    {sport.icon}
+                                </div>
+
+                                {/* Name */}
+                                <h2 className="font-semibold text-lg text-gray-800">
+                                    {sport.name}
+                                </h2>
                             </div>
+                        ))}
 
-                            {/* Name */}
-                            <h2 className="font-semibold text-lg text-gray-800">
-                                {sport.name}
-                            </h2>
-                        </div>
-                    ))}
-
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </motion.div>
     );
 };
 
