@@ -157,7 +157,7 @@ const AddFacility = () => {
                         type="submit"
                         variant="outline"
                         // isLoading={isPending}
-                        className=" rounded-none w-full rounded-xl bg-cyan-500 text-white"
+                        className=" rounded-none w-full bg-cyan-500 text-white"
                     >
                         {/* {isPending ? "Adding Package..." : "Add Travel Package"} */}
                         Add Facility
