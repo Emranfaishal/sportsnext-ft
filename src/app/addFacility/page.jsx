@@ -1,0 +1,171 @@
+'use client'
+import { Card, FieldError, Input, Label, TextField, Select, ListBox, TextArea, Button } from "@heroui/react";
+
+
+const AddFacility = () => {
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        const fromData = new FormData(e.currentTarget);
+        const facility = Object.fromEntries(fromData.entries());
+        console.log(facility);
+        const res = await fetch('http://localhost:8000/spots', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(facility)
+        });
+        const data = await res.json();
+        console.log(data);
+
+
+    }
+
+    return (
+        <div className="max-w-7xl mx-auto p-4">
+            <h2 className="font-bold text-5xl text-center p-5">Add A New Facility</h2>
+            <Card >
+
+                <form
+                    onSubmit={onSubmit}
+                    className="p-5 space-y-8"
+                >
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {/* Destination Name */}
+                        <div className="md:col-span-2">
+                            <TextField name="destinationName" isRequired>
+                                <Label>Name</Label>
+                                <Input placeholder="Enter Facility Name" className="rounded-xl" />
+                                <FieldError />
+                            </TextField>
+                        </div>
+
+                        {/* Country */}
+                        <TextField name="country" isRequired>
+                            <Label>Country</Label>
+                            <Input placeholder="country" className="rounded-xl" />
+                            <FieldError />
+                        </TextField>
+
+                        {/* Category - Updated Select Component */}
+                        <div>
+                            <Select
+                                name="category"
+                                isRequired
+                                className="w-full"
+                                placeholder="Select Facility type"
+                            >
+                                <Label>Facility Type</Label>
+                                <Select.Trigger className="rounded-xl">
+                                    <Select.Value />
+                                    <Select.Indicator />
+                                </Select.Trigger>
+                                <Select.Popover>
+                                    <ListBox>
+                                        <ListBox.Item id="Beach" textValue="Beach">
+                                            Football
+                                            <ListBox.ItemIndicator />
+                                        </ListBox.Item>
+                                        <ListBox.Item id="Mountain" textValue="Mountain">
+                                            Cricket
+                                            <ListBox.ItemIndicator />
+                                        </ListBox.Item>
+                                        <ListBox.Item id="City" textValue="City">
+                                            Tennis
+                                            <ListBox.ItemIndicator />
+                                        </ListBox.Item>
+                                        <ListBox.Item id="Adventure" textValue="Adventure">
+                                            Badmitnton
+                                            <ListBox.ItemIndicator />
+                                        </ListBox.Item>
+                                        <ListBox.Item id="Cultural" textValue="Cultural">
+                                            Basketball
+                                            <ListBox.ItemIndicator />
+                                        </ListBox.Item>
+                                        <ListBox.Item id="Luxury" textValue="Luxury">
+                                            Volleyball
+                                            <ListBox.ItemIndicator />
+                                        </ListBox.Item>
+                                        <ListBox.Item id="Luxury" textValue="Luxury">
+                                            Other
+                                            <ListBox.ItemIndicator />
+                                        </ListBox.Item>
+                                    </ListBox>
+                                </Select.Popover>
+                            </Select>
+                        </div>
+
+                        {/* Price */}
+                        <TextField name="price" type="number" isRequired>
+                            <Label>Price</Label>
+                            <Input
+                                type="number"
+                                placeholder="$900"
+                                className="rounded-2xl"
+                            />
+                            <FieldError />
+                        </TextField>
+
+                        {/* Duration */}
+                        <TextField name="duration" isRequired>
+                            <Label>Duration Time</Label>
+                            <Input
+                                placeholder="5 min"
+                                className="rounded-xl"
+                            />
+                            <FieldError />
+                        </TextField>
+
+                        {/* Departure Date */}
+                        <div className="md:col-span-2">
+                            <TextField name="departureDate" type="date" isRequired>
+                                <Label>Departure Date</Label>
+                                <Input type="date" className="rounded-xl" />
+                                <FieldError />
+                            </TextField>
+                        </div>
+
+                        {/* Image URL - Removed preview */}
+                        <div className="md:col-span-2">
+                            <TextField name="imageUrl" isRequired>
+                                <Label>Image URL</Label>
+                                <Input
+                                    type="url"
+                                    placeholder="https://example.com/bali-paradise.jpg"
+                                    className="rounded-xl"
+                                />
+                                <FieldError />
+                            </TextField>
+                        </div>
+
+                        {/* Description */}
+                        <div className="md:col-span-2">
+                            <TextField name="description" isRequired>
+                                <Label>Description</Label>
+                                <TextArea
+                                    placeholder="Describe the travel experience..."
+                                    className="rounded-xl"
+                                />
+                                <FieldError />
+                            </TextField>
+                        </div>
+                    </div>
+
+                    {/* Buttons */}
+
+                    <Button
+                        type="submit"
+                        variant="outline"
+                        // isLoading={isPending}
+                        className=" rounded-none w-full rounded-xl bg-cyan-500 text-white"
+                    >
+                        {/* {isPending ? "Adding Package..." : "Add Travel Package"} */}
+                        Add Facility
+                    </Button>
+                </form>
+            </Card>
+        </div>
+    );
+};
+
+export default AddFacility;
