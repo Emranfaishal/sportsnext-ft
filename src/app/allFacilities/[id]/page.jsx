@@ -1,5 +1,6 @@
 import { EditModelCard } from '@/componets/EditModelCard';
-import { Button } from '@heroui/react';
+import { DeleteDetails } from '@/componets/DeleteDetails';
+// import { Button } from '@heroui/react';
 import Image from 'next/image';
 import React from 'react';
 import { CiLocationOn } from 'react-icons/ci';
@@ -70,10 +71,11 @@ const DetailsPage = async ({ params }) => {
 
                     <div className='flex gap-5 justify-between mt-15'>
                         <EditModelCard data={data}></EditModelCard>
+                        <DeleteDetails data={data}></DeleteDetails>
 
                         {/* <Button variant='outline' className={'rounded-lg w-full'}><FaRegEdit /> Edit</Button>
                         <Button variant='outline' className={'rounded-lg w-full'}><FaRegEdit /> Edit</Button> */}
-                        
+
                     </div>
                     {/* <BookNowModal data={data} /> */}
                 </div>

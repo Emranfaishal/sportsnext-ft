@@ -12,17 +12,15 @@ export function EditModelCard({ data }) {
         const fromData = new FormData(e.currentTarget);
         const facility = Object.fromEntries(fromData.entries());
         console.log(facility);
-        // const res = await fetch('http://localhost:8000/spots', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(facility)
-        // });
-        // const data = await res.json();
-        // console.log(data);
-
-
+        const res = await fetch(`http://localhost:8000/spots/${_id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(facility)
+        });
+        const data = await res.json();
+        console.log(data);
     }
     return (
         <Modal>
@@ -109,7 +107,7 @@ export function EditModelCard({ data }) {
                                         <Button slot="close" variant="secondary">
                                             Cancel
                                         </Button>
-                                        <Button type="submit">Send Message</Button>
+                                        <Button type="submit"><FaRegEdit /> Edit Save</Button>
                                     </Modal.Footer>
 
                                 </form>
