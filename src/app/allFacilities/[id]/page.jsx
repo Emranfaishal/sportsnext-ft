@@ -5,13 +5,14 @@ import Image from 'next/image';
 import React from 'react';
 import { CiLocationOn } from 'react-icons/ci';
 import { FaRegEdit } from "react-icons/fa";
+import BookingCard from '@/componets/BookingCard';
 
 const DetailsPage = async ({ params }) => {
     const { id } = await params;
     // console.log(id);
     const res = await fetch(`http://localhost:8000/spots/${id}`);
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
     const { description, imageUrl, departureDate, duration, price, category, country, destinationName, _id } = data;
     return (
         <div className='mt-5 container mx-auto p-5'>
@@ -43,8 +44,8 @@ const DetailsPage = async ({ params }) => {
                         <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
 
                         <p className="text-xl font-semibold text-[#C5A358]">
-                            ${duration}
-                            <span className="text-sm text-gray-500 font-normal"> /hour</span>
+                            Time :
+                            <span className="text-lg text-gray-500 font-normal"> {duration}</span>
                         </p>
 
                     </div>
@@ -69,15 +70,13 @@ const DetailsPage = async ({ params }) => {
                         </p>
                     </div>
 
-                    <div className='flex gap-5 justify-between mt-15'>
+                    <div className='flex gap-5'>
                         <EditModelCard data={data}></EditModelCard>
                         <DeleteDetails data={data}></DeleteDetails>
-
-                        {/* <Button variant='outline' className={'rounded-lg w-full'}><FaRegEdit /> Edit</Button>
-                        <Button variant='outline' className={'rounded-lg w-full'}><FaRegEdit /> Edit</Button> */}
-
                     </div>
-                    {/* <BookNowModal data={data} /> */}
+                    <div className='text-center mt-10'>
+                        <BookingCard data={data}></BookingCard>
+                    </div>
                 </div>
             </div>
 
