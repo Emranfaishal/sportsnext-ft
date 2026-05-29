@@ -9,10 +9,14 @@ import BookingCard from '@/componets/BookingCard';
 
 const DetailsPage = async ({ params }) => {
     const { id } = await params;
-    // console.log(id);
-    const res = await fetch(`http://localhost:8000/spots/${id}`);
+    console.log(id);
+    const res = await fetch(`http://localhost:8000/spots/${id}`,{
+        headers:{
+            authorization:'logged in'
+        }
+    });
     const data = await res.json();
-    // console.log(data);
+    console.log(data);
     const { description, imageUrl, departureDate, duration, price, category, country, destinationName, _id } = data;
     return (
         <div className='mt-5 container mx-auto p-5'>

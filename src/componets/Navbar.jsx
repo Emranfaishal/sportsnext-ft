@@ -131,7 +131,7 @@ const NavbarPage = () => {
                                                 href={"/profile"}
                                                 className="flex items-center gap-2 w-full"
                                             >
-                                                <CgProfile />  Profile
+                                                <CgProfile /> Profile
                                             </Link>
                                         </Dropdown.Item>
 

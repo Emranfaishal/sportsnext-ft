@@ -12,14 +12,14 @@ const SingUpPage = () => {
         e.preventDefault()
         const formData = new FormData(e.currentTarget);
         const user = Object.fromEntries(formData.entries());
-        // console.log(user);
+        console.log(user);
         const { data, error } = await authClient.signUp.email({
             name: user.name,
             email: user.email,
             image: user.image,
             password: user.password,
         });
-        // console.log({ data, error });
+        console.log({ data, error });
 
         if (data) {
             // toast.success('Sign up Successful');
@@ -30,9 +30,9 @@ const SingUpPage = () => {
             // toast.error(error.message);
         }
     };
-    const handleGoogle=async()=>{
+    const handleGoogle = async () => {
         await authClient.signIn.social({
-            provider:'google',
+            provider: 'google',
 
         })
     }
@@ -54,6 +54,14 @@ const SingUpPage = () => {
                         <FieldError />
                     </TextField>
                     <TextField
+                        name="image"
+                        type="url"
+                    >
+                        <Label>Image Url</Label>
+                        <Input placeholder="Your imageUrl" />
+                        <FieldError />
+                    </TextField>
+                    {/* <TextField
 
                         name="image"
                         type="ImageUrl"
@@ -61,7 +69,7 @@ const SingUpPage = () => {
                         <Label>Image Url</Label>
                         <Input placeholder="Your imageUrl" />
                         <FieldError />
-                    </TextField>
+                    </TextField> */}
                     <TextField
                         isRequired
                         name="email"
@@ -99,9 +107,6 @@ const SingUpPage = () => {
                             <Check />
                             Create Account
                         </Button>
-
-
-
 
                     </div>
                 </Form>
