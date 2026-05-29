@@ -1,6 +1,7 @@
 "use client";
 
 import { authClient } from "@/lib/auth-client";
+import toast from 'react-hot-toast';
 import {
     DateField,
     Input,
@@ -49,6 +50,7 @@ const BookingCard = ({ data }) => {
             userName: user?.name,
             destinationNameId: _id,
             destinationName,
+            imageUrl,
             price,
             country,
             hours,
@@ -66,6 +68,7 @@ const BookingCard = ({ data }) => {
             body: JSON.stringify(bookingData)
         })
         const data = await res.json();
+        toast.success('your booked success');
         console.log(data);
     };
 
