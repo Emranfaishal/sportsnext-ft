@@ -134,12 +134,12 @@ const playersPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="relative bg-[#0F172A] min-h-screen flex items-center overflow-hidden"
+            className="mt-10 mb-10"
         >
-            <section className="py-16 relative bg-[#0F172A] flex items-center overflow-hidden">
+            <section className="relative flex items-center overflow-hidden">
                 <div className="container mx-auto">
                     <div className="text-center mb-10">
-                        <h2 className="text-4xl font-bold text-white">
+                        <h2 className="text-4xl font-bold">
                             What <span className="text-[#C5A358]">Players Say</span>
                         </h2>
                         <p className="text-gray-500 mt-2">

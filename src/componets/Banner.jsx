@@ -12,7 +12,7 @@ const BannerPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="relative bg-[#0F172A] min-h-screen flex items-center overflow-hidden"
+            className="relative min-h-screen flex items-center overflow-hidden"
         >
             <div className="container mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
 
@@ -22,12 +22,12 @@ const BannerPage = () => {
                     {/* Badge */}
                     <div className="inline-block px-4 py-1 rounded-full bg-[#C5A358]/10 border border-[#C5A358]/20">
                         <span className="text-[#C5A358] text-sm font-medium">
-                            ✨ BOOK • PLAY • COMPETE
+                            ✨ SPORTS • PLAY • COMPETE
                         </span>
                     </div>
 
                     {/* Heading */}
-                    <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight">
+                    <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight">
                         ONE PLATFORM<span className="text-[#C5A358]"> COUNTLESS
                             GAMES.</span>
                     </h1>
@@ -39,24 +39,24 @@ const BannerPage = () => {
 
                     {/* Buttons */}
                     <div className="flex flex-wrap gap-4 pt-4">
-                        <button className="bg-[#C5A358] hover:bg-[#b89344] text-[#0F172A] font-semibold px-8 py-3 rounded-xl transition duration-300">
+                        <button className="bg-[#e5c682] hover:bg-[#b89344] text-[#0F172A] font-semibold px-8 py-3 rounded-xl transition duration-300">
                             All Facilities
                         </button>
 
-                        <button className="border border-gray-700 text-white hover:bg-gray-800 px-8 py-3 rounded-xl transition duration-300">
+                        <button className="bg-amber-100 hover:bg-[#e8c986] px-8 py-3 rounded-xl transition duration-300">
                             Teamwork
                         </button>
                     </div>
 
                     {/* Stats */}
-                    <div className="flex gap-8 pt-8 border-t border-gray-800">
+                    <div className="flex gap-8 pt-8 border-t border-gray-200">
                         <div>
-                            <h3 className="text-2xl font-bold text-white">120+</h3>
+                            <h3 className="text-2xl font-bold">120+</h3>
                             <p className="text-gray-500 text-sm">All Sports</p>
                         </div>
 
                         <div>
-                            <h3 className="text-2xl font-bold text-white">8K+</h3>
+                            <h3 className="text-2xl font-bold">8K+</h3>
                             <p className="text-gray-500 text-sm">FootBall ,cricket</p>
                         </div>
                     </div>
@@ -66,7 +66,7 @@ const BannerPage = () => {
                 <div className="relative">
 
                     {/* Main Image */}
-                    <div className="relative z-20 rounded-3xl overflow-hidden border-4 border-gray-800 shadow-2xl lg:rotate-2 hover:rotate-0 transition-transform duration-500">
+                    <div className="relative z-20 rounded-3xl overflow-hidden border-4  shadow-2xl lg:rotate-2 hover:rotate-0 transition-transform duration-500">
                         <Image
                             src="/banner.jpg"
                             alt="Study Room"
@@ -76,7 +76,7 @@ const BannerPage = () => {
                     </div>
 
                     {/* Floating Card */}
-                    <div className="absolute -bottom-6 -left-6 z-30 bg-[#1E293B] p-5 rounded-2xl border border-gray-700 shadow-xl hidden md:block">
+                    <div className="absolute -bottom-6 -left-6 z-30 bg-[#555658] p-5 rounded-2xl border border-gray-700 shadow-xl hidden md:block">
                         <div className="flex items-center gap-3">
 
                             <div className="w-12 h-12 bg-[#C5A358] rounded-full flex items-center justify-center text-black">

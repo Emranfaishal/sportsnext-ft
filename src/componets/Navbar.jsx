@@ -10,6 +10,9 @@ import { TbCategory } from "react-icons/tb";
 import { Avatar, Button, Dropdown, Label } from "@heroui/react";
 import { TbPlayFootball } from "react-icons/tb";
 import { TbBrandBooking } from "react-icons/tb";
+import { CiSquarePlus } from "react-icons/ci";
+import { CgProfile } from "react-icons/cg";
+import { MdLogout } from "react-icons/md";
 
 const NavbarPage = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -32,8 +35,8 @@ const NavbarPage = () => {
 
                 {/* Logo */}
                 <div className="flex">
-                    <h2 className="flex items-center text-2xl font-bold text-orange-600">
-                       <TbPlayFootball /> SportsNest
+                    <h2 className="flex items-center gap-2 text-2xl font-bold text-[#C5A358]">
+                        <TbPlayFootball /> SportsNest
                     </h2>
                 </div>
 
@@ -42,7 +45,7 @@ const NavbarPage = () => {
                     <li>
                         <Link
                             href={"/"}
-                            className="flex items-center gap-1 text-gray-700 hover:text-green-800 font-medium hover:underline"
+                            className="flex items-center font-bold gap-1 text-gray-700 hover:text-gray-500 hover:underline"
                         >
                             <BiHome />
                             Home
@@ -52,10 +55,9 @@ const NavbarPage = () => {
                     <li>
                         <Link
                             href={"/allFacilities"}
-                            className="flex items-center gap-1 text-gray-700 hover:text-green-800 font-medium hover:underline"
+                            className="flex items-center font-bold gap-1 text-gray-700 hover:text-gray-500 hover:underline"
                         >
-                            <TbCategory />
-                            All Facilities
+                            <TbCategory /> All Facilities
                         </Link>
                     </li>
 
@@ -64,9 +66,9 @@ const NavbarPage = () => {
                             <li>
                                 <Link
                                     href={"/myBookings"}
-                                    className="flex items-center gap-1 text-gray-700 hover:text-green-800 font-medium hover:underline"
+                                    className="flex items-center gap-1 font-bold text-gray-700 hover:text-gray-500 hover:underline"
                                 >
-                                 <TbBrandBooking /> My Bookings
+                                    <TbBrandBooking /> My Bookings
                                 </Link>
                             </li>
                         )
@@ -83,7 +85,7 @@ const NavbarPage = () => {
                                     variant="secondary"
                                     className="px-4 py-2 rounded-lg"
                                 >
-                                    <Avatar  size="sm">
+                                    <Avatar size="sm">
                                         <Avatar.Image
                                             src={user?.image}
                                             alt={user?.name}
@@ -118,18 +120,18 @@ const NavbarPage = () => {
                                         <Dropdown.Item textValue="Add Facility">
                                             <Link
                                                 href={"/addFacility"}
-                                                className="block w-full"
+                                                className="flex items-center gap-2 w-full"
                                             >
-                                                Add Facility
+                                                <CiSquarePlus />  Add Facility
                                             </Link>
                                         </Dropdown.Item>
 
                                         <Dropdown.Item textValue="Profile">
                                             <Link
                                                 href={"/profile"}
-                                                className="block w-full"
+                                                className="flex items-center gap-2 w-full"
                                             >
-                                                Profile
+                                                <CgProfile />  Profile
                                             </Link>
                                         </Dropdown.Item>
 
@@ -137,8 +139,9 @@ const NavbarPage = () => {
                                             onClick={logout}
                                             variant="danger"
                                             textValue="Logout"
+                                            className="flex items-center text-red-500"
                                         >
-                                            Logout
+                                            <MdLogout /> Logout
                                         </Dropdown.Item>
                                     </Dropdown.Menu>
                                 </Dropdown.Popover>

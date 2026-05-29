@@ -34,7 +34,7 @@ const MyBookingPage = async () => {
               className="bg-white border rounded-2xl shadow-lg p-5 flex flex-col md:flex-row-reverse gap-6 items-center"
             >
               {/* Image Right Side */}
-              <div className="relative h-64 w-full md:w-[350px] flex-shrink-0">
+              <div className="relative h-64 w-full md:w-88 shrink-0">
                 <Image
                   src={booking?.imageUrl}
                   alt={booking?.destinationName}

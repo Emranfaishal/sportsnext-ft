@@ -41,13 +41,14 @@ const OurGraowing = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
+            className="max-w-7xl mx-auto"
         >
-            <section className="py-20 relative bg-[#0F172A]  overflow-hidden">
+            <section className="relative overflow-hidden">
                 <div className=" px-4">
 
                     {/* Heading */}
                     <div className="text-center mb-14">
-                        <h2 className="text-4xl font-bold text-white">
+                        <h2 className="text-4xl font-bold">
                             Our Growing <span className="text-[#C5A358]">Community</span>
                         </h2>
                         <p className="text-gray-500 mt-3">

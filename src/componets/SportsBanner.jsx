@@ -46,13 +46,14 @@ const SportsBanner = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
+            className="max-w-7xl mx-auto"
         >
-            <section className="py-20 relative bg-[#0F172A] flex items-center overflow-hidden">
+            <section className="py-20 relative flex items-center overflow-hidden">
                 <div className="container mx-auto px-6">
 
                     {/* Heading */}
                     <div className="text-center mb-14">
-                        <h1 className="text-4xl md:text-5xl font-bold text-white">
+                        <h1 className="text-4xl md:text-5xl font-bold">
                             Popular <span className="text-[#C5A358]">Sports</span>
                         </h1>
 
@@ -77,7 +78,7 @@ const SportsBanner = () => {
                 justify-center
                 shadow-sm
                 border border-gray-100
-                hover:border-green-700
+                hover:border-[#C5A358]
                 hover:-translate-y-2
                 transition-all duration-300
                 cursor-pointer
