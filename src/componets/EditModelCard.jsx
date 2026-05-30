@@ -2,6 +2,7 @@
 
 import { Envelope } from "@gravity-ui/icons";
 import { Button, FieldError, Input, Label, ListBox, Modal, Surface, TextArea, TextField, Select } from "@heroui/react";
+import toast from "react-hot-toast";
 import { FaRegEdit } from "react-icons/fa";
 
 export function EditModelCard({ data }) {
@@ -20,7 +21,13 @@ export function EditModelCard({ data }) {
             body: JSON.stringify(facility)
         });
         const data = await res.json();
-        console.log(data);
+        if (data) {
+            toast.success('Edit Model success');
+            window.location.reload();
+        }
+        else {
+            toast.error('no booked success');
+        }
     }
     return (
         <Modal>

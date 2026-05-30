@@ -1,5 +1,7 @@
 'use client'
 import { Card, FieldError, Input, Label, TextField, Select, ListBox, TextArea, Button } from "@heroui/react";
+import { redirect } from "next/navigation";
+import toast from "react-hot-toast";
 
 
 const AddFacility = () => {
@@ -16,9 +18,8 @@ const AddFacility = () => {
             body: JSON.stringify(facility)
         });
         const data = await res.json();
-        console.log(data);
-
-
+        toast.success('New Facility Added SuccessFully')
+        redirect('/allFacilities');
     }
 
     return (
@@ -156,10 +157,8 @@ const AddFacility = () => {
                     <Button
                         type="submit"
                         variant="outline"
-                        // isLoading={isPending}
-                        className=" rounded-none w-full bg-cyan-500 text-white"
+                        className=" rounded-lg w-full bg-[#C5A358] text-white"
                     >
-                        {/* {isPending ? "Adding Package..." : "Add Travel Package"} */}
                         Add Facility
                     </Button>
                 </form>

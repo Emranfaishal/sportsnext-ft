@@ -95,7 +95,7 @@ const loginPage = () => {
                 <p className="text-center text-slate-400 text-sm font-medium">
                     Already have an account?{' '}
                     <Link href="/singUp" className="text-amber-500 font-bold hover:underline transition-all">
-                       sing up
+                        sing up
                     </Link>
                 </p>
             </Card>

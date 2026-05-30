@@ -158,8 +158,8 @@ const NavbarPage = () => {
                                         </span>
                                     </button>
                                 </Link>
-                                <Link href={"/singUp"}>
-                                    <button className="text-[17px] font-bold rounded-[0.75em] bg-green-800 hover:scale-105 duration-300">
+                                {/* <Link href={"/singUp"}>
+                                    <button className="text-[17px] font-bold rounded-[0.75em] bg-amber-200 hover:scale-105 duration-300">
                                         <span className="block border-2  rounded-[0.75em] px-5 py-2 bg-white duration-100">
                                             <span className="flex items-center gap-1">
                                                 <MdOutlineLogin />
@@ -167,7 +167,7 @@ const NavbarPage = () => {
                                             </span>
                                         </span>
                                     </button>
-                                </Link>
+                                </Link> */}
                             </>
                         )
                     }

@@ -3,6 +3,7 @@
 import { authClient } from "@/lib/auth-client";
 import toast from 'react-hot-toast';
 import {
+    Button,
     DateField,
     Input,
     Label,
@@ -12,14 +13,13 @@ import {
 } from "@heroui/react";
 import { useState } from "react";
 import { MdOutlineBookmarkAdd } from "react-icons/md";
+import { FaExternalLinkAlt } from "react-icons/fa";
+import { redirect } from "next/navigation";
 
 const BookingCard = ({ data }) => {
     const {
         imageUrl,
-        departureDate,
-        duration,
         price,
-        category,
         country,
         destinationName,
         _id,
@@ -58,32 +58,33 @@ const BookingCard = ({ data }) => {
                 ? new Date(departureDateData)
                 : null,
         };
-
+        const { data: tokenData } = await authClient.token();
+        console.log(tokenData)
         // console.log("Booking Data:", bookingData);
         const res = await fetch('http://localhost:8000/bookings', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${tokenData?.token}`
             },
             body: JSON.stringify(bookingData)
-        })
+        });
         const data = await res.json();
-        toast.success('your booked success');
-        console.log(data);
+        if (data) {
+            toast.success('your booked success');
+            redirect('/allFacilities');
+        }
+        else {
+            toast.error('no booked success');
+        }
     };
 
     return (
         <div>
             <Modal>
                 <Modal.Trigger>
-                    <button className="w-full rounded-[0.75em] bg-black border-none cursor-pointer text-[17px] font-bold">
-                        <span className="block border-2 border-black rounded-[0.75em] px-5 py-2 bg-[#C5A358] text-white translate-y-[-0.2em] transition-transform duration-100 ease-in hover:-translate-y-[0.33em] active:translate-y-0">
-                            <span className="flex items-center gap-2">
-                                <MdOutlineBookmarkAdd />
-                                Book Now
-                            </span>
-                        </span>
-                    </button>
+                    <Button variant="ghost" className={'rounded-lg text-[#C5A358]'}> <FaExternalLinkAlt /> Booking Now
+                    </Button>
                 </Modal.Trigger>
 
                 <Modal.Backdrop>
@@ -110,6 +111,7 @@ const BookingCard = ({ data }) => {
                                         </TextField>
 
                                         <DateField
+                                            isRequired
                                             onChange={setDepartureDateData}
                                             className="w-full"
                                             name="date"
@@ -125,13 +127,14 @@ const BookingCard = ({ data }) => {
                                             </DateField.Group>
                                         </DateField>
 
+
                                         <TextField className="w-full" name="hours">
                                             <Label>Hours</Label>
 
                                             <Input
                                                 required
                                                 type="number"
-                                                min="1"
+                                                min="10"
                                                 value={hours}
                                                 onChange={(e) =>
                                                     setHours(Number(e.target.value))
@@ -149,14 +152,8 @@ const BookingCard = ({ data }) => {
                                         </div>
 
                                         <Modal.Footer>
-                                            <button
-                                                type="submit"
-                                                className="w-full rounded-[0.75em] bg-black border-none cursor-pointer text-[17px] font-bold"
-                                            >
-                                                <span className="block border-2 border-black rounded-[0.75em] px-5 py-2 bg-[#C5A358] text-white -translate-y-[0.2em] transition-transform duration-100 ease-in hover:-translate-y-[0.33em] active:translate-y-0">
-                                                    Confirm Booking
-                                                </span>
-                                            </button>
+                                            <Button type="submit" variant="ghost" className={'rounded-lg w-full bg-gray-200 text-[#C5A358]'}> <FaExternalLinkAlt /> Confirm Booking
+                                            </Button>
                                         </Modal.Footer>
                                     </form>
                                 </Surface>

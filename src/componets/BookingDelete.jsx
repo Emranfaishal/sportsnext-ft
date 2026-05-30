@@ -1,6 +1,7 @@
 "use client";
 
 import { AlertDialog, Button } from "@heroui/react";
+import { MdDelete } from "react-icons/md";
 
 export function BookingDelete({ booking }) {
     const handleDelete = async () => {
@@ -9,7 +10,6 @@ export function BookingDelete({ booking }) {
             headers: { 'content-type': 'application/json' }
         });
         const data = await res.json();
-        console.log(data);
         window.location.reload()
 
     }
@@ -19,7 +19,7 @@ export function BookingDelete({ booking }) {
 
             <AlertDialog.Backdrop>
                 <AlertDialog.Container>
-                    <AlertDialog.Dialog className="sm:max-w-[400px]">
+                    <AlertDialog.Dialog className="sm:max-w-100">
                         <AlertDialog.CloseTrigger />
                         <AlertDialog.Header>
                             <AlertDialog.Icon status="danger" />
@@ -36,7 +36,7 @@ export function BookingDelete({ booking }) {
                                 Cancel
                             </Button>
                             <Button onClick={handleDelete} slot="close" variant="danger">
-                                Delete Project
+                               <MdDelete />booking cancel
                             </Button>
                         </AlertDialog.Footer>
                     </AlertDialog.Dialog>

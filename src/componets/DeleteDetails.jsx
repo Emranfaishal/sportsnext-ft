@@ -62,7 +62,7 @@ export function DeleteDetails({ data }) {
                             </Button>
 
                             <Button onClick={handleDelete} variant="danger">
-                                Delete
+                                Permanently Delete
                             </Button>
                         </AlertDialog.Footer>
 

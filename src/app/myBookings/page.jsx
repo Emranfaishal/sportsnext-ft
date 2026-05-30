@@ -9,12 +9,14 @@ const MyBookingPage = async () => {
   });
 
   const user = session?.user;
+  console.log(user);
 
   const res = await fetch(`http://localhost:8000/bookings/${user?.id}`, {
     cache: "no-store",
   });
 
   const bookings = await res.json();
+  
 
   return (
     <div className="max-w-7xl mx-auto px-5 py-10">
@@ -42,9 +44,21 @@ const MyBookingPage = async () => {
                   className="object-cover rounded-2xl"
                 />
               </div>
+              <div>
+                {user.userName}
+              </div>
 
               {/* Text Right Side */}
+
               <div className="flex flex-col  flex-1 space-y-3">
+                <div className="space-y-2">
+                  <p className="font-semibold text-gray-800">
+                    UserName : {user?.name}
+                  </p>
+                  <p className="text-xs text-gray-500">
+                    UserEmail : {user?.email}
+                  </p>
+                </div>
                 <h3 className="text-3xl font-bold text-gray-800">
                   {booking?.destinationName}
                 </h3>
@@ -54,17 +68,22 @@ const MyBookingPage = async () => {
                   {booking?.country}
                 </p>
 
-                <p className="text-gray-600">
-                  <span className="font-semibold">Category:</span>{" "}
-                  {booking?.category}
-                </p>
 
-                <p className="text-gray-600">
+
+
+                {/* <p className="text-gray-600">
                   <span className="font-semibold">Departure:</span>{" "}
                   {booking?.departureDate}
+                </p> */}
+                <p className="text-gray-600">
+                 Date : {new Date(booking?.departureDate).toLocaleDateString("en-GB", {
+                    day: "2-digit",
+                    month: "long",
+                    year: "numeric",
+                  })}
                 </p>
 
-               
+
 
                 <p className="text-gray-600">
                   <span className="font-semibold">Price:</span> $
@@ -73,7 +92,7 @@ const MyBookingPage = async () => {
 
                 <BookingDelete booking={booking._id}></BookingDelete>
 
-               
+
               </div>
             </div>
           ))}
