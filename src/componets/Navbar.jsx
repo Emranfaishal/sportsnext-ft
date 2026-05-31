@@ -13,6 +13,7 @@ import { TbBrandBooking } from "react-icons/tb";
 import { CiSquarePlus } from "react-icons/ci";
 import { CgProfile } from "react-icons/cg";
 import { MdLogout } from "react-icons/md";
+import { FaBriefcaseMedical } from "react-icons/fa";
 
 const NavbarPage = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -30,7 +31,7 @@ const NavbarPage = () => {
     };
 
     return (
-        <nav className="bg-white shadow-md w-full">
+        <nav className="bg-gray-300 rounded-lg sticky top-0 z-50 w-full">
             <div className="max-w-7xl mx-auto flex items-center justify-between py-4 px-4">
 
                 {/* Logo */}
@@ -132,6 +133,14 @@ const NavbarPage = () => {
                                                 className="flex items-center gap-2 w-full"
                                             >
                                                 <CgProfile /> Profile
+                                            </Link>
+                                        </Dropdown.Item>
+                                        <Dropdown.Item textValue="Profile">
+                                            <Link
+                                                href={"/ManageMyFacilities"}
+                                                className="flex items-center gap-2 w-full"
+                                            >
+                                                <FaBriefcaseMedical /> Manage My Facilities
                                             </Link>
                                         </Dropdown.Item>
 

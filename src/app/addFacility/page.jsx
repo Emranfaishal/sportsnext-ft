@@ -10,7 +10,7 @@ const AddFacility = () => {
         const fromData = new FormData(e.currentTarget);
         const facility = Object.fromEntries(fromData.entries());
         console.log(facility);
-        const res = await fetch('http://localhost:8000/spots', {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/spots`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

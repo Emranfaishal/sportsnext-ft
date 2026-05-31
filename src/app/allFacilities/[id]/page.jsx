@@ -1,5 +1,5 @@
-import { EditModelCard } from '@/componets/EditModelCard';
-import { DeleteDetails } from '@/componets/DeleteDetails';
+// import { EditModelCard } from '@/componets/EditModelCard';
+// import { DeleteDetails } from '@/componets/DeleteDetails';
 import Image from 'next/image';
 import React from 'react';
 import { CiLocationOn } from 'react-icons/ci';
@@ -13,7 +13,7 @@ const DetailsPage = async ({ params }) => {
     const { token } = await auth.api.getToken({
         headers: await headers()
     });
-    const res = await fetch(`http://localhost:8000/spots/${id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/spots/${id}`, {
         headers: {
             authorization: `Bearer ${token}`
         }
@@ -56,10 +56,10 @@ const DetailsPage = async ({ params }) => {
                             Time :
                             <span className="text-lg text-gray-500 font-normal"> {duration}</span>
                         </p>
-                        <div className='flex gap-5'>
+                        {/* <div className='flex gap-5'>
                             <EditModelCard data={data}></EditModelCard>
                             <DeleteDetails data={data}></DeleteDetails>
-                        </div>
+                        </div> */}
 
                     </div>
 

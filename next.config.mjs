@@ -19,6 +19,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "etimg.etb2bimg.com",
       },
+      {
+        protocol: "https",
+        hostname: "images.seattletimes.com",
+      },
     ],
   },
 };

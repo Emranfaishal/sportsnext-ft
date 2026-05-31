@@ -10,7 +10,7 @@ export function DeleteDetails({ data }) {
 
     const handleDelete = async () => {
         try {
-            const res = await fetch(`http://localhost:8000/spots/${data._id}`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/spots/${data._id}`, {
                 method: 'DELETE',
                 headers: {
                     'content-type': 'application/json'

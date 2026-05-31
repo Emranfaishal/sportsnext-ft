@@ -5,7 +5,7 @@ import { MdDelete } from "react-icons/md";
 
 export function BookingDelete({ booking }) {
     const handleDelete = async () => {
-        const res = await fetch(`http://localhost:8000/bookings/${booking}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/bookings/${booking}`, {
             method: 'DELETE',
             headers: { 'content-type': 'application/json' }
         });

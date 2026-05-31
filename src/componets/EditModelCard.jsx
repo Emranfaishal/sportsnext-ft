@@ -13,7 +13,7 @@ export function EditModelCard({ data }) {
         const fromData = new FormData(e.currentTarget);
         const facility = Object.fromEntries(fromData.entries());
         console.log(facility);
-        const res = await fetch(`http://localhost:8000/spots/${_id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/spots/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
